@@ -54,7 +54,7 @@ Other code by:
 	VoiD
 	And anyone else I forgot...
 
-Menu dogtags, HUD numbers, and F1 coomputer icon by Pieter Verhoeven
+Menu dogtags, HUD numbers, and F1 computer icon by Pieter Verhoeven
 
 Menu screen by MDK
 
@@ -124,12 +124,20 @@ How To Run
 
 	It is strongly recommened that you copy the idlog.cin file from the Quake2 CD to your
 	baseq2/video folder.  This will allow you to always open the menu before any demos start playing.
-	
+
 	To hear Ogg Vorbis tracks ingame, rip the Q2 CD's audio tracks (2-11) to track02-track11.ogg
 	and put them in baseq2/music.  For the mission pack audio tracks, rip the Ground Zero CD's
 	audio tracks (2-11) to track12-track21.ogg.  Don't bother ripping the tracks from the
 	Reckoning CD, as they're a mix of the tracks on the Q2 and Ground Zero CDs.  Everything else
 	will be taken care of internally by KMQuake2.
+
+------------------------------------
+How to compile
+------------------------------------
+
+Ubuntu:
+apt-get install libogg-dev
+make release
 	
 ------------------------------------
 Changes as of v0.20 update 7:
@@ -142,7 +150,7 @@ Changes as of v0.20 update 7:
 	as better network performance.  The old, synchronous mode can be re-enabled by setting the cvar
 	cl_async to 0.  The new cvars are r_maxfps (default 125) for maximum rendering framerate, and
 	net_maxfps (default 60) for maximum packet rate.  Synchronous mode still uses the cl_maxfps cvar.
-	
+
 - Added .loc file support.  Loads .loc files (locs/<mapname>.loc) from the current mod dir and baseq2.
 	Both 1/8th precision integer and floating-point formats are supported.  Here are the supported commands and cvars:
 		loc_add <name>	- Adds a location point at this position with the given name.
@@ -154,13 +162,13 @@ Changes as of v0.20 update 7:
 
 - Fixed cl_servertrick and allow_download cvars being forced to 0 when starting a single-player game.
   Cl_servertrick is now saved to config.
-  
+
 - Capped connect message size to 1200 bytes in multiplayer to fix problems with clients geting hung up on connect.
 	This can be changed with the cvar sv_baselines_maxlen.  Acceptable values are from 400 to 1400.
-	
+
 - Multiplayer network messages are now limited to 2800 bytes (does not apply to local client on a listen server).
 	This can be disabled by setting the cvar sv_limit_msglen to 0.  Doing so is only recommended for LAN games.
-  
+
 - Fixed imbalance in mouse pitch and yaw sensitivity in widescreen video modes with autosensitivity enabled.
 
 - Fixed overloaded playerskins configstrings on some servers causing the client to get stuck trying to download
@@ -206,7 +214,7 @@ Changes as of v0.20 update 6:
 
 - Inventory and help computer/scoreboard are now always scaled up from 640x480, instead of sizing based
 	on status bar scale.
-	
+
 - Added support for high-res menu graphics.
 
 - Added 3D cursor to main menu.
@@ -233,7 +241,7 @@ Changes as of v0.20 update 6:
 
 - Saveshots are now sized to the nearest power of two for each dimension, so a game saved at 1024x768 will
 	have a 1024x512 saveshot.
-	
+
 - Tweaked cvar defaults for bloom effect to be more subtle.
 
 ------------------------------------
@@ -250,7 +258,7 @@ Changes as of v0.20 update 5:
 
 - Now prevents certain files that shouldn't be in paks/pk3s from loading
 	(.cfg files, saves, screenshots, etc).
-  
+
 - Fixed a crash that can happen when no hardware acceleration is found.
 
 - Fixed graphical corruption that could occur from certain errors during map loads.
@@ -282,20 +290,20 @@ Changes as of v0.20 update 2:
 ------------------------------------
 - Fixed problem with surround video modes (multi-monitor).  The FOV adjustment
 	algorithm has been changed so that it no longer breaks in such extremely wide modes.
-	
+
 - Fixed misalignment with crosshairs 1-3.
 
 - Fixed an issue that was introduced with the release of nVida's 191.xx drivers.  The OpenGL
 	extension string in these drivers is longer than the text output buffer, causing a crash.
 
 - Fixed round-off error that was limiting the accuracy of the crosshair.
-	
+
 - Fixed disappearing textures on bmodels with mixed standard and warp faces
 	(e.g. the moving pillar by the laser array in city3).
-	
+
 - Fixed camera glitch with thirdperson mode and demos.  As the original demos in baseq2/pak0.pak don't show
 	the correct player model, this is disabled by default.  Use the cvar cg_thirdperson_indemo to enable this.
-	
+
 ------------------------------------
 Changes as of v0.20 beta3:
 ------------------------------------
@@ -309,7 +317,7 @@ Changes as of v0.20 beta3:
 	ogg	stop				Stops playback
 	ogg	status				Outputs file playing and position
 	ogg	list				Lists available .ogg files
-		
+
 - Added support for 1280x720, 1280x768, 1440x900, 1920x1080, and 2560x1600 widescreen modes.
 
 - Removed oddball 1024x480 mode.
@@ -324,9 +332,9 @@ Changes as of v0.20 beta3:
 	GL_ARB_texture_non_power_of_two extension.  This greatly improves the appearance of most monster
 	and item models, as well as the display of text in intermission cinematics.
 	Set r_arb_texturenonpoweroftwo to 0 if this causes crashes on your system (likely due to a buggy driver).
-	
+
 - Fixed dark corners on most warp surfaces when vertex lighting is enabled.
-	
+
 - Added support for the type field in Quake3-style .arena files.  The start server menu's maplist
 	is filtered by the currently selected gametype.  Here are the valid type tokens:
 	Deathmatch:		dm teamdm ffa team
@@ -339,12 +347,12 @@ Changes as of v0.20 beta3:
 
 - Added support for widescreen-aspect levelshots, named levelshots/<mapname>_widescreen.jpg.
 	The image size should still be a power of 2, e.g. 512x512.
-		
+
 - Changed network protocol version to 56 to avoid conflicts with R1Q2.
 
 - Added autodownloading of pk3 files containing maps.  Both the client and
 	sever must be running this version for it to work.
-	
+
 - Added silent screenshot command (screenshot_silent).
 
 - Renamed cl_3dcam* cvars to cg_thirdperson*.
@@ -360,13 +368,13 @@ Changes as of v0.20 beta2:
 
 - Added support for lightmaps on trans surfaces.  Set transparent lighting to lightmap in the advanced
 	video menu to enable this.
-	
+
 - Added GL_ARB_fragment_program water warping.  This replaces the GL_NV_texture_shader effect on
 	cards that support it.
-	
+
 - Added optional fragment program warping to caustics.  To enable, set underwater caustics to
 	hardware warp in the advanced video menu.
-	
+
 - Added support for camera effect and letterbox screen modes.  These effects can be enabled by
 	setting the RDF_CAMERAEFFECT and RDF_LETTERBOX bits in a client's refdef flags in the game DLL.
 
@@ -413,11 +421,11 @@ Changes as of v0.20 beta1:
 	as a glow over texturedir/mytexture if it can be found.  This is similar to the glows supported
 	in DarkPlaces.  These are rendered without a second pass on quad-texturing or higher cards, so
 	there should be no fps hit.
-	
+
 - Added improved version of Barnes's underwater caustics and view warping.
 
 - Added fov auto-adjustment for widescreen modes.  This feature can be toggled in the video menu.
-	
+
 - Improved scaling system for menus.
 
 - Added support for Quake3-style .arena files for multiplayer maps.  Maps that have an arena file
@@ -741,7 +749,7 @@ and finally a reset so following text would be normal)
 - Now saves config data to a separate file named kmq2config.cfg to better cohabitate
 	with other engine mods.  If this config file does not exist, it will read the
 	config data from config.cfg.  Previously, the vid_ref cvar being forced to "kmgl"
-	would crash other engines when they attempted to execute a config.cfg used by 
+	would crash other engines when they attempted to execute a config.cfg used by
 	this engine.
 
 - Added 1280x1024, 1400x1050, and 1024x480 video modes.
@@ -841,7 +849,7 @@ Changes as of v0.04:
 
 - Added Psychospaz's enhanced particle system, making this now an OpenGL-only engine;
 	It will automatically load ref_kmgl.dll on startup
-	(to disable, comment out #define ENHANCED_PARTICLES line in q_shared.h, and 
+	(to disable, comment out #define ENHANCED_PARTICLES line in q_shared.h, and
 	recompile both the exe and ref_kmgl.dll)
 
 ------------------------------
@@ -969,7 +977,7 @@ of the License, or (at your option) any later version.
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 See the GNU General Public License for more details.
 
