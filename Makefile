@@ -344,6 +344,9 @@ $(BUILDDIR)/client/cl_inv.o :     	$(CLIENT_DIR)/cl_inv.c
 $(BUILDDIR)/client/cl_lights.o :    	$(CLIENT_DIR)/cl_lights.c
 	$(DO_CC)
 
+$(BUILDDIR)/client/cl_loc.o :    	$(CLIENT_DIR)/cl_loc.c
+	$(DO_CC)
+
 $(BUILDDIR)/client/cl_main.o :    	$(CLIENT_DIR)/cl_main.c
 	$(DO_CC)
 
