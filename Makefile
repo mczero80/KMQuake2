@@ -66,7 +66,7 @@ endif
 LDFLAGS += \
 	-lvorbisfile \
 	-lvorbis \
-	-logg 
+	-logg
 
 #LOCALBASE?=/usr
 LOCALBASE?=/usr/local
@@ -141,10 +141,10 @@ ifeq ($(strip $(BUILD_GAME)),YES)
 endif
 
 all:
-	@echo 
-	@echo Set to YES or NO at the top of the file the possible binaries to build 
+	@echo
+	@echo Set to YES or NO at the top of the file the possible binaries to build
 	@echo by the makefile.
-	@echo By default, a 'make release' will build QuDos with maX support, a glx 
+	@echo By default, a 'make release' will build QuDos with maX support, a glx
 	@echo renderer the required game binary and some other features.
 	@echo
 	@echo Possible targets:
@@ -155,7 +155,7 @@ all:
 	@echo ">> make bz2		create a tar.bz2 compressed package."
 	@echo ">> make clean		clean every '.o' object files."
 	@echo ">> make distclean	clean objects, binaries and modified files."
-	@echo 
+	@echo
 debug:
 
 	@-mkdir -p $(BUILD_DEBUG_DIR) \
@@ -164,8 +164,8 @@ debug:
 		$(BUILD_DEBUG_DIR)/ded \
 		$(BUILD_DEBUG_DIR)/ref_gl \
 		$(BUILD_DEBUG_DIR)/game
-		
-	$(MAKE) targets BUILDDIR=$(BUILD_DEBUG_DIR) CFLAGS+="$(DEBUG_CFLAGS) -DKMQUAKE2_VERSION='\"$(VERSION) Debug\"'" 
+
+	$(MAKE) targets BUILDDIR=$(BUILD_DEBUG_DIR) CFLAGS+="$(DEBUG_CFLAGS) -DKMQUAKE2_VERSION='\"$(VERSION) Debug\"'"
 release:
 
 	@-mkdir -p $(BUILD_RELEASE_DIR) \
@@ -232,8 +232,8 @@ QUAKE2_OBJS = \
 	$(BUILDDIR)/client/ui_options_sound.o \
 	$(BUILDDIR)/client/ui_quit.o \
 	$(BUILDDIR)/client/ui_subsystem.o \
-	$(BUILDDIR)/client/ui_video.o \	
-	$(BUILDDIR)/client/ui_video_advanced.o \	
+	$(BUILDDIR)/client/ui_video.o \
+	$(BUILDDIR)/client/ui_video_advanced.o \
 	\
 	$(BUILDDIR)/client/cmd.o \
 	$(BUILDDIR)/client/cmodel.o \
@@ -293,7 +293,7 @@ QUAKE2_OBJS = \
 	$(BUILDDIR)/ref_gl/r_warp.o \
 	\
 	$(BUILDDIR)/ref_gl/qgl_unix.o
-	
+
 QUAKE2_AS_OBJS = \
 	$(BUILDDIR)/client/snd_mixa.o
 
@@ -311,7 +311,7 @@ $(BINDIR)/kmquake2 : $(QUAKE2_OBJS) $(QUAKE2_AS_OBJS) $(QUAKE2_LNX_OBJS)
 	@echo
 	$(CC) $(CFLAGS) -o $@ $(QUAKE2_OBJS) $(QUAKE2_AS_OBJS) $(QUAKE2_LNX_OBJS) $(GLXLDFLAGS) $(LDFLAGS)
 
-$(BINDIR)/kmquake2-sdl : $(QUAKE2_OBJS) $(QUAKE2_AS_OBJS) $(QUAKE2_SDL_OBJS) 
+$(BINDIR)/kmquake2-sdl : $(QUAKE2_OBJS) $(QUAKE2_AS_OBJS) $(QUAKE2_SDL_OBJS)
 	@echo
 	@echo "==================== Linking $@ ===================="
 	@echo
@@ -319,10 +319,10 @@ $(BINDIR)/kmquake2-sdl : $(QUAKE2_OBJS) $(QUAKE2_AS_OBJS) $(QUAKE2_SDL_OBJS)
 
 $(BUILDDIR)/client/cl_cin.o :     	$(CLIENT_DIR)/cl_cin.c
 	$(DO_CC)
-	
+
 $(BUILDDIR)/client/cl_cinematic.o :     $(CLIENT_DIR)/cl_cinematic.c
 	$(DO_CC)
-	
+
 $(BUILDDIR)/client/cl_download.o :     	$(CLIENT_DIR)/cl_download.c
 	$(DO_CC)
 
@@ -349,7 +349,7 @@ $(BUILDDIR)/client/cl_main.o :    	$(CLIENT_DIR)/cl_main.c
 
 $(BUILDDIR)/client/cl_parse.o :   	$(CLIENT_DIR)/cl_parse.c
 	$(DO_CC)
-	
+
 $(BUILDDIR)/client/cl_particle.o :   	$(CLIENT_DIR)/cl_particle.c
 	$(DO_CC)
 
@@ -358,13 +358,13 @@ $(BUILDDIR)/client/cl_pred.o :    	$(CLIENT_DIR)/cl_pred.c
 
 $(BUILDDIR)/client/cl_tempent.o :    	$(CLIENT_DIR)/cl_tempent.c
 	$(DO_CC)
-	
+
 $(BUILDDIR)/client/cl_utils.o :    	$(CLIENT_DIR)/cl_utils.c
 	$(DO_CC)
 
 $(BUILDDIR)/client/cl_screen.o :    	$(CLIENT_DIR)/cl_screen.c
 	$(DO_CC)
-	
+
 $(BUILDDIR)/client/cl_string.o :    	$(CLIENT_DIR)/cl_string.c
 	$(DO_CC)
 
@@ -391,76 +391,76 @@ $(BUILDDIR)/client/snd_stream.o :    	$(CLIENT_DIR)/snd_stream.c
 
 $(BUILDDIR)/client/m_flash.o :    	$(GAME_DIR)/m_flash.c
 	$(DO_CC)
-	
+
 $(BUILDDIR)/client/ui_backend.o :    	$(UI_DIR)/ui_backend.c
 	$(DO_CC)
-	
+
 $(BUILDDIR)/client/ui_game.o :    	$(UI_DIR)/ui_game.c
 	$(DO_CC)
-	
+
 $(BUILDDIR)/client/ui_game_credits.o :    	$(UI_DIR)/ui_game_credits.c
 	$(DO_CC)
-	
+
 $(BUILDDIR)/client/ui_game_saveload.o :    	$(UI_DIR)/ui_game_saveload.c
 	$(DO_CC)
-	
+
 $(BUILDDIR)/client/ui_main.o :    	$(UI_DIR)/ui_main.c
 	$(DO_CC)
-	
+
 $(BUILDDIR)/client/ui_mp_addressbook.o :    	$(UI_DIR)/ui_mp_addressbook.c
 	$(DO_CC)
-	
+
 $(BUILDDIR)/client/ui_mp_dmoptions.o :    	$(UI_DIR)/ui_mp_dmoptions.c
 	$(DO_CC)
-	
+
 $(BUILDDIR)/client/ui_mp_download.o :    	$(UI_DIR)/ui_mp_download.c
 	$(DO_CC)
-	
+
 $(BUILDDIR)/client/ui_mp_joinserver.o :    	$(UI_DIR)/ui_mp_joinserver.c
 	$(DO_CC)
-	
+
 $(BUILDDIR)/client/ui_mp_playersetup.o :    	$(UI_DIR)/ui_mp_playersetup.c
 	$(DO_CC)
-	
+
 $(BUILDDIR)/client/ui_mp_startserver.o :    	$(UI_DIR)/ui_mp_startserver.c
 	$(DO_CC)
-	
+
 $(BUILDDIR)/client/ui_multiplayer.o :    	$(UI_DIR)/ui_multiplayer.c
 	$(DO_CC)
-	
+
 $(BUILDDIR)/client/ui_options.o :    	$(UI_DIR)/ui_options.c
 	$(DO_CC)
-	
+
 $(BUILDDIR)/client/ui_options_controls.o :    	$(UI_DIR)/ui_options_controls.c
 	$(DO_CC)
-	
+
 $(BUILDDIR)/client/ui_options_effects.o :    	$(UI_DIR)/ui_options_effects.c
 	$(DO_CC)
-	
+
 $(BUILDDIR)/client/ui_options_interface.o :    	$(UI_DIR)/ui_options_interface.c
 	$(DO_CC)
-	
+
 $(BUILDDIR)/client/ui_options_keys.o :    	$(UI_DIR)/ui_options_keys.c
 	$(DO_CC)
-	
+
 $(BUILDDIR)/client/ui_options_screen.o :    	$(UI_DIR)/ui_options_screen.c
 	$(DO_CC)
-	
+
 $(BUILDDIR)/client/ui_options_sound.o :    	$(UI_DIR)/ui_options_sound.c
 	$(DO_CC)
-	
+
 $(BUILDDIR)/client/ui_quit.o :    	$(UI_DIR)/ui_quit.c
 	$(DO_CC)
-	
+
 $(BUILDDIR)/client/ui_subsystem.o :    	$(UI_DIR)/ui_subsystem.c
 	$(DO_CC)
-	
+
 $(BUILDDIR)/client/ui_video.o :    	$(UI_DIR)/ui_video.c
 	$(DO_CC)
-	
+
 $(BUILDDIR)/client/ui_video_advanced.o :    	$(UI_DIR)/ui_video_advanced.c
 	$(DO_CC)
-	
+
 $(BUILDDIR)/client/cmd.o :        	$(COMMON_DIR)/cmd.c
 	$(DO_CC)
 
@@ -556,31 +556,31 @@ $(BUILDDIR)/client/unzip.o :		$(UNIX_DIR)/zip/unzip.c
 
 $(BUILDDIR)/client/ioapi.o :		$(UNIX_DIR)/zip/ioapi.c
 	$(DO_CC)
-	
+
 $(BUILDDIR)/ref_gl/r_backend.o :        	$(REF_GL_DIR)/r_backend.c
 	$(DO_GL_SHLIB_CC)
-	
+
 $(BUILDDIR)/ref_gl/r_beam.o :        	$(REF_GL_DIR)/r_beam.c
 	$(DO_GL_SHLIB_CC)
-	
+
 $(BUILDDIR)/ref_gl/r_bloom.o :        	$(REF_GL_DIR)/r_bloom.c
 	$(DO_GL_SHLIB_CC)
-	
+
 $(BUILDDIR)/ref_gl/r_cin.o :        	$(REF_GL_DIR)/r_cin.c
 	$(DO_GL_SHLIB_CC)
-	
+
 $(BUILDDIR)/ref_gl/r_draw.o :        	$(REF_GL_DIR)/r_draw.c
 	$(DO_GL_SHLIB_CC)
-	
+
 $(BUILDDIR)/ref_gl/r_entity.o :        	$(REF_GL_DIR)/r_entity.c
 	$(DO_GL_SHLIB_CC)
-	
+
 $(BUILDDIR)/ref_gl/r_fog.o :        	$(REF_GL_DIR)/r_fog.c
 	$(DO_GL_SHLIB_CC)
-	
+
 $(BUILDDIR)/ref_gl/r_fragment.o :       $(REF_GL_DIR)/r_fragment.c
 	$(DO_GL_SHLIB_CC)
-	
+
 $(BUILDDIR)/ref_gl/r_glstate.o :       $(REF_GL_DIR)/r_glstate.c
 	$(DO_GL_SHLIB_CC)
 
@@ -598,10 +598,10 @@ $(BUILDDIR)/ref_gl/r_alias.o :       	$(REF_GL_DIR)/r_alias.c
 
 $(BUILDDIR)/ref_gl/r_alias_md2.o :        	$(REF_GL_DIR)/r_alias_md2.c
 	$(DO_GL_SHLIB_CC)
-	
+
 $(BUILDDIR)/ref_gl/r_alias_misc.o :        	$(REF_GL_DIR)/r_alias_misc.c
 	$(DO_GL_SHLIB_CC)
-	
+
 $(BUILDDIR)/ref_gl/r_arb_program.o :        	$(REF_GL_DIR)/r_arb_program.c
 	$(DO_GL_SHLIB_CC)
 
@@ -751,10 +751,10 @@ $(BUILDDIR)/ded/glob.o :       $(UNIX_DIR)/glob.c
 $(BUILDDIR)/ded/net_udp.o :    $(UNIX_DIR)/net_udp.c
 	$(DO_DED_CC)
 
-$(BUILDDIR)/ded/cd_null.o :    $(NULL_DIR)/cd_null.c    
+$(BUILDDIR)/ded/cd_null.o :    $(NULL_DIR)/cd_null.c
 	$(DO_DED_CC)
 
-$(BUILDDIR)/ded/cl_null.o :    $(NULL_DIR)/cl_null.c    
+$(BUILDDIR)/ded/cl_null.o :    $(NULL_DIR)/cl_null.c
 	$(DO_DED_CC)
 
 
@@ -839,7 +839,7 @@ GAME_OBJS = \
 	$(BUILDDIR)/game/p_view.o \
 	$(BUILDDIR)/game/p_weapon.o \
 	$(BUILDDIR)/game/q_shared.o
-	
+
 $(BINDIR)/baseq2/kmq2game$(ARCH).$(SHLIBEXT) : $(GAME_OBJS)
 	$(CC) $(CFLAGS) $(SHLIBLDFLAGS) -o $@ $(GAME_OBJS) -lGL
 
@@ -863,7 +863,7 @@ $(BUILDDIR)/game/acebot_nodes.o :       $(GAME_DIR)/acesrc/acebot_nodes.c
 
 $(BUILDDIR)/game/acebot_spawn.o :       $(GAME_DIR)/acesrc/acebot_spawn.c
 	$(DO_SHLIB_CC)
-	
+
 $(BUILDDIR)/game/g_ai.o :         	$(GAME_DIR)/g_ai.c
 	$(DO_SHLIB_CC)
 
@@ -938,7 +938,7 @@ $(BUILDDIR)/game/g_save.o :       	$(GAME_DIR)/g_save.c
 
 $(BUILDDIR)/game/g_spawn.o :      	$(GAME_DIR)/g_spawn.c
 	$(DO_SHLIB_CC)
-	
+
 $(BUILDDIR)/game/g_svcmds.o :     	$(GAME_DIR)/g_svcmds.c
 	$(DO_SHLIB_CC)
 
@@ -1070,7 +1070,7 @@ $(BUILDDIR)/game/p_weapon.o :     	$(GAME_DIR)/p_weapon.c
 
 $(BUILDDIR)/game/q_shared.o :     	$(GAME_DIR)/q_shared.c
 	$(DO_SHLIB_CC)
-	
+
 #############################################################################
 # MISC
 #############################################################################
@@ -1082,13 +1082,13 @@ clean:
 	$(BUILD_RELEASE_DIR)
 	@echo .
 	@echo .... Done
-	
+
 clean-bin:
 	@echo cleaning binaries
 	@-rm -rf $(BINDIR)
 	@echo .
 	@echo .... Done
-	
+
 distclean:
 	@echo cleaning objects and binaries
 	@-rm -rf $(BUILD_DEBUG_DIR) $(BUILD_RELEASE_DIR) $(BINDIR)
@@ -1096,12 +1096,12 @@ distclean:
 		\( -name '*~' \) -type f -print`
 	@echo .
 	@echo .... Done
-	
+
 tar:
 	@echo Creating tar file ...
 	@tar cvf KMQuake2-$(VERSION).tar quake2
 	@echo ... Done
-	
+
 gz:
 	@echo Creating gzip compressed file ...
 	@tar czvf KMQuake2-$(VERSION).tar.gz quake2
@@ -1110,7 +1110,7 @@ bz2:
 	@echo Creating bzip2 compressed file ...
 	@tar cjvf KMQuake2-$(VERSION).tar.bz2 quake2
 	@echo .... Done
-	
+
 install:
 	@echo Copying files to your home dir ...
 	@cp -r $(BINDIR) ~/
