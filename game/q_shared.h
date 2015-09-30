@@ -9,7 +9,7 @@ of the License, or (at your option) any later version.
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 See the GNU General Public License for more details.
 
@@ -19,7 +19,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-	
+
 // q_shared.h -- included first by ALL program modules
 
 #ifdef _MSC_VER	// _WIN32
@@ -64,7 +64,7 @@ typedef unsigned char 		byte;
 typedef enum {false, true}	qboolean;
 
 // 64-bit integer definitions
-#ifdef _WIN32 
+#ifdef _WIN32
 #  ifndef __GNUC__	// MSVC/Borland
 	typedef __int64 qint64;
 #  else	// Cygwin
@@ -86,6 +86,8 @@ typedef enum {false, true}	qboolean;
 	typedef long long qint64;
 #elif defined(R5900)	// PS2 EE
 	typedef long qint64;
+#elif defined(linux)
+  typedef int64_t qint64;
 #endif
 
 #ifndef NULL
@@ -219,7 +221,7 @@ __inline int Q_vsnprintf (char *Dest, size_t Count, const char *Format, va_list 
 
 #define	PRINT_ALL			0
 #define PRINT_DEVELOPER		      1		// only print when "developer 1"
-#define PRINT_ALERT			2		
+#define PRINT_ALERT			2
 
 
 // destination class for gi.multicast()
@@ -710,7 +712,7 @@ typedef struct
 
 // pmove_state_t is the information necessary for client side movement
 // prediction
-typedef enum 
+typedef enum
 {
 	// can accelerate and turn
 	PM_NORMAL,
@@ -1549,7 +1551,7 @@ typedef struct
 #endif							//end Knightmare
 
 	float		blend[4];		// rgba full screen effect
-	
+
 	float		fov;			// horizontal field of view
 
 	int			rdflags;		// refdef flags
@@ -1559,7 +1561,7 @@ typedef struct
 
 
 // ==================
-// PGM 
+// PGM
 #define VIDREF_GL		1
 #define VIDREF_SOFT		2
 #define VIDREF_OTHER	3
@@ -1567,4 +1569,3 @@ typedef struct
 extern int vidref_val;
 // PGM
 // ==================
-
